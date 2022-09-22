@@ -1,0 +1,2 @@
+sudo apt-get update
+sudo apt-get -y install libwxgtk3.0-dev libwxgtk3.0-0v5-dbg valgrind
