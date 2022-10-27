@@ -20,8 +20,8 @@ private:
 
     // data handles (not owned)
     //std::vector<GraphEdge *> _parentEdges; // edges to preceding nodes 
-    std::vector<std::unique_ptr<GraphEdge>> _parentEdges;
-    ChatBot *_chatBot;
+    std::vector<GraphEdge*> _parentEdges;
+    ChatBot _chatBot;
 
     ////
     //// EOF STUDENT CODE

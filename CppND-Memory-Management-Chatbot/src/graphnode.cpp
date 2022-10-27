@@ -43,7 +43,7 @@ void GraphNode::MoveChatbotHere(ChatBot cb)
 void GraphNode::MoveChatbotToNewNode(GraphNode *newNode)
 {
     newNode->MoveChatbotHere(_chatBot);
-    _chatBot = nullptr; // invalidate pointer at source
+    //_chatBot = nullptr; // invalidate pointer at source
 }
 ////
 //// EOF STUDENT CODE
