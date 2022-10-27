@@ -52,7 +52,7 @@ public:
     //// STUDENT CODE
     ////
 
-    void MoveChatbotHere(ChatBot *chatbot);
+    void MoveChatbotHere(ChatBot cb);
 
     ////
     //// EOF STUDENT CODE

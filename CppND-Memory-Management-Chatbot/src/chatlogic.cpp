@@ -206,12 +206,11 @@ void ChatLogic::LoadAnswerGraphFromFile(std::string filename)
     ////
 
     // identify root node
-    //GraphNode *rootNode = nullptr;
-  	std::unique_ptr<GraphNode> rootNode = nullptr;
+    GraphNode *rootNode = nullptr;
     for (auto it = std::begin(_nodes); it != std::end(_nodes); ++it)
     {
         // search for nodes which have no incoming edges
-        if ((it->get())->GetNumberOfParents() == 0)
+        if ((*it)->GetNumberOfParents() == 0)
         {
 
             if (rootNode == nullptr)
@@ -226,9 +225,14 @@ void ChatLogic::LoadAnswerGraphFromFile(std::string filename)
     }
  
     // add chatbot to graph root node
-  
-    _chatBot->SetRootNode(rootNode);
-    rootNode->MoveChatbotHere(_chatBot);
+  	ChatBot cb("../CppND-Memory-Management-Chatbot/images/chatbot.png");
+  	cb.SetChatLogicHandle(this);
+    cb.SetRootNode(rootNode);
+    rootNode->MoveChatbotHere(std::move(cb));
+  	
+  	
+    //_chatBot->SetRootNode(rootNode);
+    //rootNode->MoveChatbotHere(_chatBot);
     
     ////
     //// EOF STUDENT CODE
