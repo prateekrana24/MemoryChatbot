@@ -86,7 +86,7 @@ ChatBot &ChatBot::operator=(const ChatBot &origin) //copy assignment operator
 
 ChatBot::ChatBot(ChatBot &&origin) //move constructor
 {
-  std::cout << "This is the move contructor" << std::endl;
+  std::cout << "This is the ChatBot move contructor" << std::endl;
   
   _image = origin._image;
   _chatLogic = origin._chatLogic;
@@ -103,7 +103,7 @@ ChatBot::ChatBot(ChatBot &&origin) //move constructor
 
 ChatBot &ChatBot::operator=(ChatBot &&origin) //move assignment operator
 {
-  std::cout << "This is the move assignment operator" << std::endl;
+  std::cout << "This is the ChatBot move assignment operator" << std::endl;
   
   if (this == &origin) {
   	return *this;
