@@ -28,8 +28,9 @@ void GraphNode::AddEdgeToParentNode(GraphEdge *edge)
 }
 
 void GraphNode::AddEdgeToChildNode(GraphEdge *edge)
-{
+{ 
     _childEdges.push_back(edge);
+    
 }
 
 //// STUDENT CODE
@@ -42,7 +43,7 @@ void GraphNode::MoveChatbotHere(ChatBot cb)
 
 void GraphNode::MoveChatbotToNewNode(GraphNode *newNode)
 {
-    newNode->MoveChatbotHere(std::move(_chatBot));
+  	newNode->MoveChatbotHere(_chatBot);
     //_chatBot = nullptr; // invalidate pointer at source
 }
 ////
