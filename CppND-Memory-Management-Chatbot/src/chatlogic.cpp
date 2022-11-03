@@ -169,14 +169,14 @@ void ChatLogic::LoadAnswerGraphFromFile(std::string filename)
                           	edge->SetChildNode(childNode->get());
                             //edge->SetParentNode(*parentNode);
                           	edge->SetParentNode(parentNode->get());
-                            _edges.emplace_back(edge.get());
+                            //_edges.emplace_back(edge.get());
 
                             // find all keywords for current node
                             AddAllTokensToElement("KEYWORD", tokens, *edge);
 
                             // store reference in child node and parent node
                           	(*childNode)->AddEdgeToParentNode(edge.get());
-                          	(*parentNode)->AddEdgeToChildNode(edge.get());
+                          	(*parentNode)->AddEdgeToChildNode(std::move(edge));
                             //(*childNode)->AddEdgeToParentNode(edge);
                             //(*parentNode)->AddEdgeToChildNode(edge);
                         }
@@ -229,7 +229,7 @@ void ChatLogic::LoadAnswerGraphFromFile(std::string filename)
   	cb.SetChatLogicHandle(this);
   
     cb.SetRootNode(rootNode);
-    rootNode->MoveChatbotHere(cb);
+    rootNode->MoveChatbotHere(std::move(cb));
   	
     //_chatBot->SetRootNode(rootNode);
     //rootNode->MoveChatbotHere(_chatBot);
